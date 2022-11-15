@@ -22,6 +22,13 @@ puts "----------"
 @store1.employees.create(first_name: "Khurram", last_name: "Virani", hourly_rate: 60)
 @store1.employees.create(first_name: "Jenelle", last_name: "Martinez", hourly_rate: 60)
 @store1.employees.create(first_name: "Elena", last_name: "Martinez", hourly_rate: 60)
+
+#Testing validation
+@store1.employees.create(first_name: "Elena", last_name: "Martinez", hourly_rate: 20)
+@store1.save
+puts @store1.errors.full_messages
+puts "test, test"
+
 # 4. Go ahead and create some more employees using the create method. You can do this by making multiple calls to create (like you have before.) No need to assign the employees to variables though. Create them through the `@store#` instance variables that you defined in previous exercises. Create a bunch under `@store1` (Burnaby) and `@store2` (Richmond). Eg: `@store1.employees.create(...)`.
 @store2.employees.create(first_name: "Jordan", last_name: "Guerrero", hourly_rate: 60)
 @store2.employees.create(first_name: "Nikita", last_name: "Malhotra", hourly_rate: 60)
