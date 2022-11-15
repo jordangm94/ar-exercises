@@ -8,3 +8,16 @@ puts "Exercise 5"
 puts "----------"
 
 # Your code goes here ...
+
+### Exercise 5: Calculations
+# 1. Output the total revenue for the entire company (all stores), using Active Record's `.sum` calculation method.
+# This targets the annual revenue across all instances of store class and sums
+puts "The annual revenue for all stores combined is #{Store.sum(:annual_revenue)}"
+
+# 2. On the next line, also output the average annual revenue for all stores.
+puts "The average annual revenue for all stores is #{Store.average(:annual_revenue)}"
+
+# 3. Output the number of stores that are generating $1M or more in annual sales. **Hint:** Chain together `where` and `size` (or `count`) Active Record methods.
+# Important Note: Where statement must come first, filter for those that have > $1Million, than count!
+puts "The number of stores that are generating more than $1m is #{Store.where("annual_revenue > ?", 1000000).count(:annual_revenue)}"
+
